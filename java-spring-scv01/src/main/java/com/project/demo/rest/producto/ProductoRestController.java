@@ -24,7 +24,7 @@ public class ProductoRestController {
     private ProductoRepository productoRepository;
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('USER', 'SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('ADMIN','USER', 'SUPER_ADMIN')")
     public ResponseEntity<?> getAllProductos(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size,
@@ -43,7 +43,7 @@ public class ProductoRestController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('USER', 'SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('ADMIN','USER', 'SUPER_ADMIN')")
     public ResponseEntity<?> getProductoById(@PathVariable Long id, HttpServletRequest request) {
         Optional<Producto> producto = productoRepository.findById(id);
         if (producto.isPresent()) {
@@ -54,14 +54,14 @@ public class ProductoRestController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('SUPER_ADMIN')")
     public ResponseEntity<?> createProducto(@RequestBody Producto producto, HttpServletRequest request) {
         Producto savedProducto = productoRepository.save(producto);
         return new GlobalResponseHandler().handleResponse("Producto creado exitosamente.", savedProducto, HttpStatus.CREATED, request);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('SUPER_ADMIN')")
     public ResponseEntity<?> updateProducto(@PathVariable Long id, @RequestBody Producto producto, HttpServletRequest request) {
         Optional<Producto> existingProductoOpt = productoRepository.findById(id);
         if (existingProductoOpt.isPresent()) {
@@ -91,7 +91,7 @@ public class ProductoRestController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('SUPER_ADMIN')")
     public ResponseEntity<?> deleteProducto(@PathVariable Long id, HttpServletRequest request) {
         Optional<Producto> producto = productoRepository.findById(id);
         if (producto.isPresent()) {

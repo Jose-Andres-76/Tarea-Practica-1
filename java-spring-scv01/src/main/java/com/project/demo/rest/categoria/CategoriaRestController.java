@@ -24,7 +24,7 @@ public class CategoriaRestController {
     private CategoriaRepository categoriaRepository;
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN', 'USER')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('ADMIN', 'SUPER_ADMIN', 'USER')")
     public ResponseEntity<?> getAllCategorias(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size,
@@ -43,7 +43,7 @@ public class CategoriaRestController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN', 'USER')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('ADMIN', 'SUPER_ADMIN', 'USER')")
     public ResponseEntity<?> getCategoriaById(@PathVariable Long id, HttpServletRequest request) {
         Optional<Categoria> categoria = categoriaRepository.findById(id);
         if (categoria.isPresent()) {
@@ -55,14 +55,14 @@ public class CategoriaRestController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('SUPER_ADMIN')")
     public ResponseEntity<?> createCategoria(@RequestBody Categoria categoria, HttpServletRequest request) {
         Categoria savedCategoria = categoriaRepository.save(categoria);
         return new GlobalResponseHandler().handleResponse("Categoria creada.", savedCategoria, HttpStatus.CREATED, request);
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('SUPER_ADMIN')")
     public ResponseEntity<?> updateCategoria(@PathVariable Long id, @RequestBody Categoria categoria, HttpServletRequest request) {
         Optional<Categoria> existingCategoriaOpt = categoriaRepository.findById(id);
         if (existingCategoriaOpt.isPresent()) {
@@ -81,7 +81,7 @@ public class CategoriaRestController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyRole('SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated() && hasAnyRole('SUPER_ADMIN')")
     public ResponseEntity<?> deleteCategoria(@PathVariable Long id, HttpServletRequest request) {
         Optional<Categoria> categoria = categoriaRepository.findById(id);
         if (categoria.isPresent()) {
