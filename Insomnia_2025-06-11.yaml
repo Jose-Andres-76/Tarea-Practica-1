@@ -1,0 +1,291 @@
+type: collection.insomnia.rest/5.0
+name: "Tarea 1: Jose Andres Ramos Espinoza"
+meta:
+  id: wrk_b07a3232c1494cebaabef8bb46fc7fc4
+  created: 1749518588710
+  modified: 1749664397625
+collection:
+  - url: "{{ _.base_url }}productos"
+    name: Listar Productos
+    meta:
+      id: req_41b8ce2cdd51461f9d9adaab386c6510
+      created: 1715441812674
+      modified: 1749664176797
+      isPrivate: false
+      sortKey: -1715441812674
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjQxNjYsImV4cCI6MTc0OTY2Nzc2Nn0.RFwvdo6MVAFdAZPszXdqWhqZDfHl1pO_bVdDS_Le7Do
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}auth/login"
+    name: Login
+    meta:
+      id: req_6266818407264b9d800e19a1d9de29ff
+      created: 1715468092150
+      modified: 1749662384227
+      isPrivate: false
+      sortKey: -1715447527110
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "super.admin@gmail.com", 
+        	"password": "superadmin123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.1.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}productos"
+    name: Registrar Producto
+    meta:
+      id: req_461828cc271d4c89872b114a1fb5fd90
+      created: 1716216404352
+      modified: 1749664209211
+      isPrivate: false
+      sortKey: -1715450094296
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        			"nombre": "Ranchitas",
+        			"descripcion": "Snack de maiz con forma triangular",
+        			"precio": 10,
+        			"stock": 500
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjQxNjYsImV4cCI6MTc0OTY2Nzc2Nn0.RFwvdo6MVAFdAZPszXdqWhqZDfHl1pO_bVdDS_Le7Do
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}productos/4"
+    name: Borrar Producto
+    meta:
+      id: req_14b773368bee43feaee52144cf1c03e1
+      created: 1718985509466
+      modified: 1749663071502
+      isPrivate: false
+      sortKey: -1715441812599
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjMwMDAsImV4cCI6MTc0OTY2NjYwMH0.CWoUbu4hY0-org-w-x4mnrwdpUZWpUOIONk60uDPcEo
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}categorias"
+    name: Listar Categorias
+    meta:
+      id: req_569d3f25b5b34c5bb328a3008121f63d
+      created: 1749662436868
+      modified: 1749664180468
+      isPrivate: false
+      sortKey: -1715441812649
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjQxNjYsImV4cCI6MTc0OTY2Nzc2Nn0.RFwvdo6MVAFdAZPszXdqWhqZDfHl1pO_bVdDS_Le7Do
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}categorias"
+    name: Registrar Categoria
+    meta:
+      id: req_f81daebf0ea84aa4b84896f60511b93a
+      created: 1749663411217
+      modified: 1749664205067
+      isPrivate: false
+      sortKey: -1715448810703
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        			"nombre": "Snacks",
+        			"descripcion": "Alimentos para pasar el rato."
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjQxNjYsImV4cCI6MTc0OTY2Nzc2Nn0.RFwvdo6MVAFdAZPszXdqWhqZDfHl1pO_bVdDS_Le7Do
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}categorias/4"
+    name: Borrar Categoria
+    meta:
+      id: req_393199b601cc43a795a57744c4809c36
+      created: 1749663467242
+      modified: 1749663476462
+      isPrivate: false
+      sortKey: -1715441812586.5
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjMwMDAsImV4cCI6MTc0OTY2NjYwMH0.CWoUbu4hY0-org-w-x4mnrwdpUZWpUOIONk60uDPcEo
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}productos/2"
+    name: Actualizar Producto
+    meta:
+      id: req_9c5c2dbf44b24024b1a4e3ac69aea80e
+      created: 1749663583873
+      modified: 1749664432647
+      isPrivate: false
+      sortKey: -1715448168906.5
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        			"precio": 800,
+        			"stock": 100
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjMwMDAsImV4cCI6MTc0OTY2NjYwMH0.CWoUbu4hY0-org-w-x4mnrwdpUZWpUOIONk60uDPcEo
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}categorias/3"
+    name: Actualizar Categoria
+    meta:
+      id: req_a0ec42a893704c9f865a24edce85ca9a
+      created: 1749663603532
+      modified: 1749664333803
+      isPrivate: false
+      sortKey: -1715447848008.25
+    method: PUT
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"descripcion": "Bebidas con contenido alcoholico, no aptas para menores de 18 años"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.1.1
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjMwMDAsImV4cCI6MTc0OTY2NjYwMH0.CWoUbu4hY0-org-w-x4mnrwdpUZWpUOIONk60uDPcEo
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_756a58329d6d4524830cd30b0c0a217d
+    created: 1726541004518
+    modified: 1726541004518
+environments:
+  name: Base Environment
+  meta:
+    id: env_d2e2cfa1314544d6b999dedb21311e15
+    created: 1726541004518
+    modified: 1726541004518
+    isPrivate: false
+  subEnvironments:
+    - name: dev
+      meta:
+        id: env_6e74c63880464f3fae0a71021c7ecc20
+        created: 1715442086680
+        modified: 1715442160066
+        isPrivate: false
+        sortKey: 1715442086680
+      data:
+        base_url: http://localhost:8080/
+      color: "#11ff00"
+    - name: prod
+      meta:
+        id: env_22c7efe2d45948738629002cea6591d9
+        created: 1715442102658
+        modified: 1717950400534
+        isPrivate: false
+        sortKey: 1715442102658
+      data:
+        base_url: https://demo-api-spring.azurewebsites.net/
+      color: "#ff0000"
