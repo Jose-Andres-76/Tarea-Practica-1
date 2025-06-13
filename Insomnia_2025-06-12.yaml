@@ -10,7 +10,7 @@ collection:
     meta:
       id: req_41b8ce2cdd51461f9d9adaab386c6510
       created: 1715441812674
-      modified: 1749664176797
+      modified: 1749775934309
       isPrivate: false
       sortKey: -1715441812674
     method: GET
@@ -19,7 +19,7 @@ collection:
         value: insomnia/9.1.1
     authentication:
       type: bearer
-      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjQxNjYsImV4cCI6MTc0OTY2Nzc2Nn0.RFwvdo6MVAFdAZPszXdqWhqZDfHl1pO_bVdDS_Le7Do
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaW1wbGUudXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NDk3NzU5MjIsImV4cCI6MTc0OTc3OTUyMn0.GbrXjXqQaomJ-b5_8Mrjqd7oUSSD8N3_ut98fngzeH0
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -29,11 +29,11 @@ collection:
         store: true
       rebuildPath: true
   - url: "{{ _.base_url }}auth/login"
-    name: Login
+    name: Login User
     meta:
       id: req_6266818407264b9d800e19a1d9de29ff
       created: 1715468092150
-      modified: 1749662384227
+      modified: 1749775919584
       isPrivate: false
       sortKey: -1715447527110
     method: POST
@@ -41,8 +41,8 @@ collection:
       mimeType: application/json
       text: |-
         {
-        	"email": "super.admin@gmail.com", 
-        	"password": "superadmin123"
+        	"email": "simple.user@gmail.com", 
+        	"password": "simpleuser123"
         }
     headers:
       - name: Content-Type
@@ -62,7 +62,7 @@ collection:
     meta:
       id: req_461828cc271d4c89872b114a1fb5fd90
       created: 1716216404352
-      modified: 1749664209211
+      modified: 1749775942522
       isPrivate: false
       sortKey: -1715450094296
     method: POST
@@ -82,7 +82,7 @@ collection:
         value: insomnia/9.1.1
     authentication:
       type: bearer
-      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjQxNjYsImV4cCI6MTc0OTY2Nzc2Nn0.RFwvdo6MVAFdAZPszXdqWhqZDfHl1pO_bVdDS_Le7Do
+      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaW1wbGUudXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NDk3NzU5MjIsImV4cCI6MTc0OTc3OTUyMn0.GbrXjXqQaomJ-b5_8Mrjqd7oUSSD8N3_ut98fngzeH0
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -119,7 +119,7 @@ collection:
     meta:
       id: req_569d3f25b5b34c5bb328a3008121f63d
       created: 1749662436868
-      modified: 1749664180468
+      modified: 1749774090783
       isPrivate: false
       sortKey: -1715441812649
     method: GET
@@ -128,7 +128,6 @@ collection:
         value: insomnia/9.1.1
     authentication:
       type: bearer
-      token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjQxNjYsImV4cCI6MTc0OTY2Nzc2Nn0.RFwvdo6MVAFdAZPszXdqWhqZDfHl1pO_bVdDS_Le7Do
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -247,6 +246,35 @@ collection:
     authentication:
       type: bearer
       token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlci5hZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDk2NjMwMDAsImV4cCI6MTc0OTY2NjYwMH0.CWoUbu4hY0-org-w-x4mnrwdpUZWpUOIONk60uDPcEo
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}auth/login"
+    name: Login Admin
+    meta:
+      id: req_8951afdf262e481f95f5a043e4ab8e7a
+      created: 1749774146899
+      modified: 1749774146899
+      isPrivate: false
+      sortKey: -1715444669892
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "super.admin@gmail.com", 
+        	"password": "superadmin123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/9.1.1
     settings:
       renderRequestBody: true
       encodeUrl: true

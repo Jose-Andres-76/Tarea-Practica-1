@@ -24,7 +24,7 @@ public class CategoriaRestController {
     private CategoriaRepository categoriaRepository;
 
     @GetMapping
-    @PreAuthorize("isAuthenticated() && hasAnyRole('ADMIN', 'SUPER_ADMIN', 'USER')")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<?> getAllCategorias(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size,
@@ -43,7 +43,7 @@ public class CategoriaRestController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("isAuthenticated() && hasAnyRole('ADMIN', 'SUPER_ADMIN', 'USER')")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<?> getCategoriaById(@PathVariable Long id, HttpServletRequest request) {
         Optional<Categoria> categoria = categoriaRepository.findById(id);
         if (categoria.isPresent()) {

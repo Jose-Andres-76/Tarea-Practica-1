@@ -24,7 +24,7 @@ public class ProductoRestController {
     private ProductoRepository productoRepository;
 
     @GetMapping
-    @PreAuthorize("isAuthenticated() && hasAnyRole('ADMIN','USER', 'SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<?> getAllProductos(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size,
@@ -43,7 +43,7 @@ public class ProductoRestController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("isAuthenticated() && hasAnyRole('ADMIN','USER', 'SUPER_ADMIN')")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<?> getProductoById(@PathVariable Long id, HttpServletRequest request) {
         Optional<Producto> producto = productoRepository.findById(id);
         if (producto.isPresent()) {
