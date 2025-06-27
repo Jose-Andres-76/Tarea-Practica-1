@@ -55,9 +55,18 @@ public class ProductoRestController {
 
     @PostMapping
     @PreAuthorize("isAuthenticated() && hasAnyRole('SUPER_ADMIN')")
-    public ResponseEntity<?> createProducto(@RequestBody Producto producto, HttpServletRequest request) {
-        Producto savedProducto = productoRepository.save(producto);
-        return new GlobalResponseHandler().handleResponse("Producto creado exitosamente.", savedProducto, HttpStatus.CREATED, request);
+    public ResponseEntity<?> createProducto(@RequestBody Producto newProducto, HttpServletRequest request) {
+
+        Optional<Producto> foundProductoOpt = productoRepository.findByNombre(newProducto.getNombre());
+        if(foundProductoOpt.isEmpty()){
+            productoRepository.save(newProducto);
+
+            return new GlobalResponseHandler().handleResponse("Producto creado correctamente",
+                    newProducto, HttpStatus.OK, request);}
+        else{
+            return new GlobalResponseHandler().handleResponse("Producto ya existe en el sistema" + foundProductoOpt.get().getId() + " no fue encontrado"  ,
+                    HttpStatus.NOT_FOUND, request);
+        }
     }
 
     @PutMapping("/{id}")

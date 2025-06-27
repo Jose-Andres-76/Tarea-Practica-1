@@ -1,5 +1,6 @@
 package com.project.demo.logic.entity.categoria;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +18,9 @@ public class Categoria {
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
+
+
+    @JsonIgnore
 
     public Categoria() {
     }

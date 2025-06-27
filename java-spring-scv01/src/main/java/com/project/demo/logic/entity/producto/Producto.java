@@ -1,6 +1,7 @@
 package com.project.demo.logic.entity.producto;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.project.demo.logic.entity.categoria.Categoria;
 import jakarta.persistence.*;
 
@@ -17,6 +18,7 @@ public class Producto {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id", nullable = true)
+    @JsonIgnoreProperties("productos")
     private Categoria categoria;
 
     public Producto() {
@@ -64,8 +66,7 @@ public class Producto {
     public Categoria getCategoria() {
         return categoria;
     }
-    public Producto setCategoria(Categoria categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-        return this;
     }
 }
